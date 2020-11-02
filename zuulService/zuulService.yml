@@ -1,0 +1,19 @@
+# (1)构建路由地址
+zuul:
+  #只是能排除以Eureka注册的存在的服务，但是zuul本身定于的路由，是否存在运行实例，无法确定
+  #如果访问了不存在的实例，会返回500
+  #ignored-services: "*"  排除所有的Eureka注册的存在的服务
+  prefix: /api  #前缀
+  routes:
+    # 这里可以自定义
+    wind_login:
+      # 匹配的路由规则
+      path: /windLogin/**
+      # 路由的目标服务名
+      serviceId: loginService
+    wind_fegin:
+      # 匹配的路由规则
+      path: /windFegin/**
+      # 路由的目标服务名
+      serviceId: feginService
+
